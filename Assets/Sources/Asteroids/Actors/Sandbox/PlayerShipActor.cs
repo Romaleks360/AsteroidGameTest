@@ -4,10 +4,10 @@ using Common.Observables;
 using UnityEngine;
 
 public class PlayerShipActor : MonoBehaviour, IControllableActor {
-    
+    [SerializeField] private Collider _collider;
     [SerializeField] private Transform _aim;
     
-    public Collider Collider => GetComponent<Collider>();
+    public Collider Collider => _collider;
     
     public IObservableValue<bool> Alive { get; } = new ObservableValue<bool>(true);
     public IObservableValue<Vector3> Position { get; } = new ObservableValue<Vector3>();

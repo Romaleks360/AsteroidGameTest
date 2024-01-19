@@ -8,17 +8,19 @@ namespace Asteroids.Systems {
         protected HashSet<TActor> Actors { get; } = new HashSet<TActor>();
         
         public void AddActor(IActor actor) {
-            if (actor is TActor systemActor) {
+            if (OnValidateActor(actor) && actor is TActor systemActor) {
                 Actors.Add(systemActor);
 
                 OnActorAdded(systemActor);
             }
         }
         
+        protected virtual bool OnValidateActor(IActor actor) => true;
+        
         protected virtual void OnActorAdded(TActor actor) {}
 
         public void RemoveActor(IActor actor) {
-            if (actor is TActor systemActor) {
+            if (OnValidateActor(actor) && actor is TActor systemActor) {
                 OnActorRemove(systemActor);
                 
                 Actors.Remove(systemActor);

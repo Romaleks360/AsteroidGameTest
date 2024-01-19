@@ -8,7 +8,6 @@ namespace Asteroids.Systems {
         public void Update() {
             Actors.Each(actor => {
                 if (actor.LifeEnd.Value < Time.time) {
-                    Debug.Log("Disappear Actor!");
                     actor.Alive.Value = false;
                 }
             });

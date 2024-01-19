@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86d096053a0474a98adcf899b4af397, type: 3}
   m_Name: LargeAsteroid
   m_EditorClassIdentifier: 
+  _poolCount: 50
   _prefab: {fileID: 6459386377399060336, guid: ac5f64c259c74004caa234e9b06076d8, type: 3}

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6459386377399060303}
-  - component: {fileID: 3195460693349742872}
   - component: {fileID: 8554271270961408853}
   m_Layer: 0
   m_Name: MiddleAsteroid
@@ -34,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3195460693349742872
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6459386377399060336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8554271270961408853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dddd438ad6b4495486612637e2573a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 6791174543066008938}
   _speed: 4
 --- !u!1 &6778202481986424727
 GameObject:
@@ -166,3 +153,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 97ff8b9fa4f12e04f9f5d50b2912ba68, type: 3}
   m_PrefabInstance: {fileID: 129980291863205579}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &940304211852389274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 97ff8b9fa4f12e04f9f5d50b2912ba68, type: 3}
+  m_PrefabInstance: {fileID: 129980291863205579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &6791174543066008938
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940304211852389274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: 97ff8b9fa4f12e04f9f5d50b2912ba68, type: 3}

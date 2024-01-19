@@ -1,13 +1,13 @@
-using Asteroids.Actors;
+﻿using Asteroids.Actors;
 using Common.Observables;
 using UnityEngine;
 
-public class RocketActor : MonoBehaviour, IConsumableActor {
-    [SerializeField] private Collider _collider;
-    [SerializeField] private float _speed;
-    [SerializeField] private float _lifetime = 5f;
+public class ParticleActor : MonoBehaviour, IConsumableActor {
     
-    public Collider Collider => _collider;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _lifetime = 1f;
+    
+    public Collider Collider => GetComponent<Collider>();
     public IObservableValue<Vector3> Position { get; } = new ObservableValue<Vector3>();
     public IObservableValue<Vector3> Direction { get; } = new ObservableValue<Vector3>();
     public IObservableValue<float> Speed { get; } = new ObservableValue<float>();
@@ -35,5 +35,4 @@ public class RocketActor : MonoBehaviour, IConsumableActor {
     private void OnDisable() {
         Position.Changed -= OnPositionChanged;
     }
-    
 }

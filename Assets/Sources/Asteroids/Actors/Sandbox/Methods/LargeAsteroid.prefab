@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6459386377399060303}
-  - component: {fileID: 3195460693349742872}
   - component: {fileID: 3735179970597972676}
   m_Layer: 0
   m_Name: LargeAsteroid
@@ -34,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3195460693349742872
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6459386377399060336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3735179970597972676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f0b14fd2e124bbfad8c397c9957e64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 3021361459433076520}
   _speed: 2
 --- !u!1 &6778202481986424727
 GameObject:
@@ -161,6 +148,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cc9b815c7cdeba43b349715b21ce5d5, type: 3}
+--- !u!1 &8390296124431890040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5cc9b815c7cdeba43b349715b21ce5d5, type: 3}
+  m_PrefabInstance: {fileID: 8696793992455801641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &3021361459433076520
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390296124431890040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: 5cc9b815c7cdeba43b349715b21ce5d5, type: 3}
 --- !u!4 &9168063799572901058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5cc9b815c7cdeba43b349715b21ce5d5, type: 3}

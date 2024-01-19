@@ -4,6 +4,7 @@ using Asteroids.Actors;
 using UnityEngine;
 
 namespace Asteroids.Systems {
+    
     public class BallisticsSystem : ActorSystem<IControllableActor>, IActorSystem {
 
         private readonly Dictionary<IControllableActor, Action> _disposing = new();

@@ -4,15 +4,18 @@ using UnityEngine;
 
 namespace Asteroids.Systems {
     public class CollisionSystem : ActorSystem<IActor>, IActorSystem {
-        private float _invincibleTime = 1f;
         
-        public void Update() {
+        private float _invincibleTime = 1f;
 
+        protected override bool OnValidateActor(IActor actor) => actor.Collider != null;
+
+        public void Update() {
+            // TODO: Need to refactor
             if ((_invincibleTime -= Time.deltaTime) > 0) return;
             
             Actors.Each(a => {
                 Actors.Each(t => {
-                    if (a != t && HasCollision(a, t)) {
+                    if (HasCollision(a, t)) {
 
                         if (a is RocketActor && t is AsteroidActor) {
                             a.Alive.Value = false;
@@ -34,7 +37,7 @@ namespace Asteroids.Systems {
         }
         
         private bool HasCollision(IActor source, IActor target) {
-            return source.Collider.bounds.Intersects(target.Collider.bounds);
+            return source != target && source.Alive.Value && target.Alive.Value && source.Collider.bounds.Intersects(target.Collider.bounds);
         }
     }
 }

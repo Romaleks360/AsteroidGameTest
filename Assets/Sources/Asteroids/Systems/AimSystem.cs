@@ -3,24 +3,18 @@ using Common;
 using UnityEngine;
 
 namespace Asteroids.Systems {
-    
-    public enum InputAction { None, Primary, Secondary }
-    
-    public class InputSystem : ActorSystem<IControllableActor>, IActorSystem {
+    public class AimSystem : ActorSystem<IControllableActor>, IActorSystem {
 
         public void Update() {
             var input = new Vector2(Input.GetAxis("Horizontal") * -1, Mathf.Clamp01(Input.GetAxis("Vertical")));
-            var action = Input.GetKeyDown(KeyCode.Space) ? InputAction.Primary :
-                Input.GetKeyDown(KeyCode.E) ? InputAction.Secondary : InputAction.None;
             
             Actors.Each(actor => {
-                ControlActor(actor, input, action);
+                ControlActor(actor, input);
             });
         }
         
-        private static void ControlActor(IControllableActor actor, Vector2 input, InputAction action) {
+        private static void ControlActor(IControllableActor actor, Vector2 input) {
             actor.Aim.Value += Vector3.forward * input.x;
-            actor.Action.Value = action;
             
             if (input.y > 0) {
                 var angle = Quaternion.Angle(Quaternion.Euler(actor.Direction.Value), Quaternion.Euler(actor.Aim.Value));
