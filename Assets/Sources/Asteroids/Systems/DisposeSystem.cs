@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Asteroids.Actors;
 
 namespace Asteroids.Systems {
 
     public interface IDisposeHandler {
         void OnDisposedActor(IActor actor);
+        void OnActorsCountChanged(int actorsCount);
     }
     
     public class DisposeSystem : ActorSystem<IActor>, IActorSystem {
@@ -14,6 +16,8 @@ namespace Asteroids.Systems {
         private readonly IDisposeHandler _disposeHandler;
         private readonly ActorFactory _factory;
 
+        private bool _stageCleared;
+        
         public DisposeSystem(ActorFactory factory, IDisposeHandler disposeHandler) {
             _factory = factory;
             _disposeHandler = disposeHandler;
@@ -30,13 +34,19 @@ namespace Asteroids.Systems {
         private void OnActorChangeState(IActor actor, bool state) {
             if (state == false) {
                 _disposeHandler.OnDisposedActor(actor);
-                _factory.Dispose(actor);
+
+                if (actor is not PlayerShipActor)
+                    _factory.Dispose(actor);
+                else
+                    actor.Alive.Value = true;
             }    
         }
 
         protected override void OnActorRemove(IActor actor) {
             _disposing[actor]?.Invoke();
             _disposing.Remove(actor);
+
+            _disposeHandler.OnActorsCountChanged(Actors.OfType<IStageActor>().Count());
         }
 
         public void Update() {}

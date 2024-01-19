@@ -11,6 +11,8 @@ namespace Asteroids.Actors {
     }
     
     public interface IActorComponent {}
+    
+    public interface IStageActor {}
 
     public interface IActor {
         Collider Collider { get; }

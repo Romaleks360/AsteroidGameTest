@@ -1,5 +1,3 @@
 ﻿using Asteroids.Actors;
 
-public abstract class AsteroidActor : MoveableActor, IMoveableActor {
-    
-}
+public abstract class AsteroidActor : MoveableActor, IMoveableActor, IStageActor {}

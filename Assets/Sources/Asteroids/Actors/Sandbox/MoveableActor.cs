@@ -2,6 +2,7 @@
 using UnityEngine;
 
 public abstract class MoveableActor : MonoBehaviour {
+    
     [SerializeField] private Collider _collider;
     [SerializeField] private float _speed;
     
