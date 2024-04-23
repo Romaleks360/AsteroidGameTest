@@ -37,7 +37,7 @@ public class PlayerShipActor : MonoBehaviour, IControllableActor {
     
     private void OnDisable() {
         Position.Changed -= OnPositionChanged;
-        Aim.Changed += OnAimChanged;
+        Aim.Changed -= OnAimChanged;
     }
 
 }
